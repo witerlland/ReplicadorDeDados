@@ -122,7 +122,6 @@ object frmMain: TfrmMain
     Color = clHotLight
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 457
   end
   object body: TPanel
     Left = 0
@@ -136,7 +135,6 @@ object frmMain: TfrmMain
     Padding.Right = 10
     Padding.Bottom = 15
     TabOrder = 2
-    ExplicitTop = 51
     object edtContext: TEdit
       AlignWithMargins = True
       Left = 13
@@ -146,9 +144,6 @@ object frmMain: TfrmMain
       Align = alTop
       TabOrder = 0
       TextHint = 'Contexto do servi'#231'o'
-      ExplicitLeft = 55
-      ExplicitTop = 56
-      ExplicitWidth = 121
     end
     object edtPort: TEdit
       AlignWithMargins = True
@@ -159,9 +154,6 @@ object frmMain: TfrmMain
       Align = alTop
       TabOrder = 1
       TextHint = 'Porta do servi'#231'o'
-      ExplicitLeft = 55
-      ExplicitTop = 56
-      ExplicitWidth = 121
     end
     object btnStartServer: TButton
       Left = 10
@@ -183,8 +175,6 @@ object frmMain: TfrmMain
       Caption = 'Salvar configura'#231#245'es'
       TabOrder = 3
       OnClick = btSaveConfigClick
-      ExplicitLeft = 5
-      ExplicitTop = 256
     end
     object cbDatabaseType: TComboBox
       AlignWithMargins = True
@@ -199,9 +189,6 @@ object frmMain: TfrmMain
       OnChange = cbDatabaseTypeChange
       Items.Strings = (
         'Firebird')
-      ExplicitLeft = 31
-      ExplicitTop = 144
-      ExplicitWidth = 145
     end
     object edtDBPath: TEdit
       AlignWithMargins = True
@@ -212,9 +199,6 @@ object frmMain: TfrmMain
       Align = alTop
       TabOrder = 5
       TextHint = 'Caminho da base de dados'
-      ExplicitLeft = 232
-      ExplicitTop = 208
-      ExplicitWidth = 121
     end
     object edtDBName: TEdit
       AlignWithMargins = True
@@ -226,9 +210,6 @@ object frmMain: TfrmMain
       TabOrder = 6
       TextHint = 'Nome da base de dados'
       Visible = False
-      ExplicitLeft = 72
-      ExplicitTop = 176
-      ExplicitWidth = 121
     end
     object edtDBPort: TEdit
       AlignWithMargins = True
@@ -239,9 +220,6 @@ object frmMain: TfrmMain
       Align = alTop
       TabOrder = 7
       TextHint = 'Porta do banco de dados'
-      ExplicitLeft = 32
-      ExplicitTop = 224
-      ExplicitWidth = 121
     end
     object edtDBUser: TEdit
       AlignWithMargins = True
@@ -252,9 +230,6 @@ object frmMain: TfrmMain
       Align = alTop
       TabOrder = 8
       TextHint = 'Nome do usu'#225'rio'
-      ExplicitLeft = 152
-      ExplicitTop = 296
-      ExplicitWidth = 121
     end
     object edtDBPass: TEdit
       AlignWithMargins = True
@@ -265,9 +240,6 @@ object frmMain: TfrmMain
       Align = alTop
       TabOrder = 9
       TextHint = 'Senha do banco'
-      ExplicitLeft = 192
-      ExplicitTop = 256
-      ExplicitWidth = 121
     end
   end
   object trIcon: TTrayIcon
@@ -341,7 +313,8 @@ object frmMain: TfrmMain
       'edtDBPath.Text'
       'edtDBPort.Text'
       'edtDBUser.Text'
-      'edtPort.Text')
+      'edtPort.Text'
+      'cbDatabaseType.ItemIndex')
     StoredValues = <>
     Left = 168
     Top = 328

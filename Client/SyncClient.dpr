@@ -3,7 +3,9 @@ program SyncClient;
 uses
   Vcl.Forms,
   uFrmMain in 'forms\uFrmMain.pas' {frmMain},
-  uDmData in 'forms\uDmData.pas' {dmData: TDataModule};
+  uDmData in 'forms\uDmData.pas' {dmData: TDataModule},
+  uFormQuery in 'classes\uFormQuery.pas',
+  uGrupoPref in 'classes\Sync\uGrupoPref.pas';
 
 {$R *.res}
 

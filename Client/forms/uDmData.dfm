@@ -12,11 +12,10 @@ object dmData: TdmData
     Top = 16
   end
   object restDB: TRESTDWDataBase
-    Active = True
+    Active = False
     Compression = True
     CriptOptions.Use = False
     CriptOptions.Key = 'RDWBASEKEY256'
-    MyIP = '127.0.0.1'
     AuthenticationOptions.AuthorizationOption = rdwAONone
     Proxy = False
     ProxyOptions.Port = 8888
@@ -41,7 +40,17 @@ object dmData: TdmData
     UserAgent = 
       'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, l' +
       'ike Gecko) Chrome/41.0.2227.0 Safari/537.36'
-    Left = 48
+    Left = 24
     Top = 72
+  end
+  object jediINI: TJvAppIniFileStorage
+    StorageOptions.BooleanStringTrueValues = 'TRUE, YES, Y'
+    StorageOptions.BooleanStringFalseValues = 'FALSE, NO, N'
+    AutoFlush = True
+    AutoReload = True
+    FileName = 'config.ini'
+    SubStorages = <>
+    Left = 85
+    Top = 71
   end
 end

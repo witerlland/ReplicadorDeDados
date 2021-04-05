@@ -29,7 +29,6 @@ object frmMain: TfrmMain
     Padding.Bottom = 5
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 297
     object btExit: TPngSpeedButton
       Left = 265
       Top = 5
@@ -122,8 +121,6 @@ object frmMain: TfrmMain
     Color = clHotLight
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 457
-    ExplicitWidth = 297
   end
   object mmLog: TMemo
     Left = 0
@@ -132,28 +129,157 @@ object frmMain: TfrmMain
     Height = 89
     Align = alBottom
     TabOrder = 2
-    ExplicitTop = 368
-    ExplicitWidth = 185
   end
-  object btStart: TButton
-    AlignWithMargins = True
-    Left = 3
-    Top = 366
-    Width = 314
-    Height = 25
-    Align = alBottom
-    Caption = 'Iniciar'
+  object body: TPanel
+    Left = 0
+    Top = 50
+    Width = 320
+    Height = 344
+    Align = alClient
+    BevelOuter = bvNone
+    Padding.Left = 10
+    Padding.Top = 15
+    Padding.Right = 10
+    Padding.Bottom = 15
     TabOrder = 3
-    OnClick = btStartClick
-    ExplicitLeft = 80
-    ExplicitTop = 296
-    ExplicitWidth = 75
+    object edtContext: TEdit
+      AlignWithMargins = True
+      Left = 13
+      Top = 45
+      Width = 294
+      Height = 21
+      Align = alTop
+      TabOrder = 0
+      TextHint = 'Contexto do servi'#231'o'
+    end
+    object edtPort: TEdit
+      AlignWithMargins = True
+      Left = 13
+      Top = 18
+      Width = 294
+      Height = 21
+      Align = alTop
+      TabOrder = 1
+      TextHint = 'Porta do servi'#231'o'
+    end
+    object btSaveConfig: TButton
+      AlignWithMargins = True
+      Left = 13
+      Top = 234
+      Width = 294
+      Height = 25
+      Align = alTop
+      Caption = 'Salvar configura'#231#245'es'
+      TabOrder = 2
+      OnClick = btSaveConfigClick
+    end
+    object cbDatabaseType: TComboBox
+      AlignWithMargins = True
+      Left = 13
+      Top = 72
+      Width = 294
+      Height = 21
+      Align = alTop
+      ItemIndex = 0
+      TabOrder = 3
+      Text = 'Firebird'
+      Items.Strings = (
+        'Firebird')
+    end
+    object edtDBPath: TEdit
+      AlignWithMargins = True
+      Left = 13
+      Top = 99
+      Width = 294
+      Height = 21
+      Align = alTop
+      TabOrder = 4
+      TextHint = 'Caminho da base de dados'
+    end
+    object edtDBName: TEdit
+      AlignWithMargins = True
+      Left = 13
+      Top = 126
+      Width = 294
+      Height = 21
+      Align = alTop
+      TabOrder = 5
+      TextHint = 'Nome da base de dados'
+      Visible = False
+    end
+    object edtDBPort: TEdit
+      AlignWithMargins = True
+      Left = 13
+      Top = 153
+      Width = 294
+      Height = 21
+      Align = alTop
+      TabOrder = 6
+      TextHint = 'Porta do banco de dados'
+    end
+    object edtDBUser: TEdit
+      AlignWithMargins = True
+      Left = 13
+      Top = 180
+      Width = 294
+      Height = 21
+      Align = alTop
+      TabOrder = 7
+      TextHint = 'Nome do usu'#225'rio'
+    end
+    object edtDBPass: TEdit
+      AlignWithMargins = True
+      Left = 13
+      Top = 207
+      Width = 294
+      Height = 21
+      Align = alTop
+      TabOrder = 8
+      TextHint = 'Senha do banco'
+    end
+    object btStart: TButton
+      AlignWithMargins = True
+      Left = 13
+      Top = 301
+      Width = 294
+      Height = 25
+      Align = alBottom
+      Caption = 'Iniciar'
+      TabOrder = 9
+      OnClick = btStartClick
+    end
   end
   object tmSync: TTimer
     Enabled = False
-    Interval = 100
     OnTimer = tmSyncTimer
-    Left = 264
-    Top = 488
+    Left = 16
+    Top = 496
+  end
+  object jediINI: TJvAppIniFileStorage
+    StorageOptions.BooleanStringTrueValues = 'TRUE, YES, Y'
+    StorageOptions.BooleanStringFalseValues = 'FALSE, NO, N'
+    AutoFlush = True
+    AutoReload = True
+    FileName = 'config.ini'
+    SubStorages = <>
+    Left = 61
+    Top = 496
+  end
+  object jediForm: TJvFormStorage
+    AppStorage = jediINI
+    AppStoragePath = '%FORM_NAME%\'
+    Options = []
+    StoredProps.Strings = (
+      'edtContext.Text'
+      'edtDBName.Text'
+      'edtDBPass.Text'
+      'edtDBPath.Text'
+      'edtDBPort.Text'
+      'edtDBUser.Text'
+      'edtPort.Text'
+      'cbDatabaseType.ItemIndex')
+    StoredValues = <>
+    Left = 104
+    Top = 496
   end
 end

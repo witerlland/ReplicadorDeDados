@@ -6,17 +6,20 @@ uses
   System.SysUtils, System.Classes, FireDAC.Stan.Intf, FireDAC.Stan.Option,
   FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
   FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.VCLUI.Wait,
-  uDWAbout, uRESTDWPoolerDB, FireDAC.Comp.Client, Data.DB;
+  uDWAbout, uRESTDWPoolerDB, FireDAC.Comp.Client, Data.DB, JvComponentBase,
+  JvAppStorage, JvAppIniStorage, FireDAC.Phys.FB, FireDAC.Phys.FBDef;
 
 type
   TdmData = class(TDataModule)
     fdConn: TFDConnection;
     fdTrans: TFDTransaction;
     restDB: TRESTDWDataBase;
+    jediINI: TJvAppIniFileStorage;
   private
     { Private declarations }
   public
     { Public declarations }
+    procedure ConfigDB;
   end;
 
 var
@@ -27,5 +30,20 @@ implementation
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
 {$R *.dfm}
+
+{ TdmData }
+
+procedure TdmData.ConfigDB;
+begin
+  with fdConn.Params do
+  begin
+    DriverID := 'FB';
+    Database := jediINI.IniFile.ReadString('frmMain', 'edtDBPath_Text', '');
+    UserName := jediINI.IniFile.ReadString('frmMain', 'edtDBUser_text', '');
+    Password := jediINI.IniFile.ReadString('frmMain', 'edtDBPass_text', '');
+  end;
+
+  fdConn.Connected := True;
+end;
 
 end.
